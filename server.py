@@ -15,7 +15,7 @@ application = tornado.web.Application([
 	(r"/", MainHandler),
 	#(r"/assets/(.*)", AssetHandler),
 	(r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": "C:/Users/enduser/Desktop/Documents/Programming/Javascript/2048_Stats/assets/"}),
-])
+], debug=True)
 
 if __name__ == "__main__":
 	application.listen(8888)
