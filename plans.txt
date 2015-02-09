@@ -1,0 +1,21 @@
+context brush concept for zooming in on different dates
+
+further controls over zoom, e.g. month partitioning, entering start/end dates...
+
+hover over games for the notes on them
+
+analytics window for general stats, for stat queries, results
+	general stats
+		avg
+		min
+		max
+		count
+	queries
+		general stats against defined time range
+		*** "general stats" could therefore be shown as the special case when
+				the focus brush is not active
+		*** look up simple analyses statisticians use
+		
+ultra-zoom window for visualizing details on 1 selected game
+
+offer visualization toggles between fill, line, circles (low priority; circles is a fine default)
