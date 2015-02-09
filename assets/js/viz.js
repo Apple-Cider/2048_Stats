@@ -3,7 +3,7 @@ var width = 960 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom;
 
 var maxScore = 0;
-var x, y, xAxis, yAxis, svg, focus;
+var x, y, xAxis, yAxis, svg, focus, line;
 
 function initValues() {
 	x = d3.time.scale().range([0, width]);
@@ -52,14 +52,15 @@ function saySomething(error, rows) {
 
 function visualize(data) {
 	console.log("Visualizing data...");
-	var area = d3.svg.area()
+	area = d3.svg.area()
 		.interpolate("monotone")
-		.x(function(d) { return x(d.time); })
+		.x(function(d) { console.log(d.time + " -> " + x(d.time)); return x(d.time); })
 		.y0(height)
 		.y1(function(d) { console.log(d.score + " -> " + y(d.score)); return y(d.score); });
 	
-	focus.append("g")
+	focus.append("path")
 		.datum(data)
+		.attr("class", "area")
 		.attr("d", area);
 	
 	focus.append("g")
@@ -69,7 +70,6 @@ function visualize(data) {
 	
 	focus.append("g")
 		.attr("class", "y axis")
-		//.attr("transform", "translate(" + width + ",0)")
 		.call(yAxis);
 }
 
