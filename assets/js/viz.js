@@ -52,16 +52,15 @@ function saySomething(error, rows) {
 
 function visualize(data) {
 	console.log("Visualizing data...");
-	area = d3.svg.area()
+	line = d3.svg.line()
 		.interpolate("monotone")
 		.x(function(d) { console.log(d.time + " -> " + x(d.time)); return x(d.time); })
-		.y0(height)
-		.y1(function(d) { console.log(d.score + " -> " + y(d.score)); return y(d.score); });
+		.y(function(d) { console.log(d.score + " -> " + y(d.score)); return y(d.score); });
 	
 	focus.append("path")
 		.datum(data)
-		.attr("class", "area")
-		.attr("d", area);
+		.attr("class", "line")
+		.attr("d", line);
 	
 	focus.append("g")
 		.attr("class", "x axis")
