@@ -1,5 +1,6 @@
 import tornado.ioloop
 import tornado.web
+import config
 
 class MainHandler(tornado.web.RequestHandler):
 	def get(self):
@@ -9,7 +10,7 @@ class MainHandler(tornado.web.RequestHandler):
 #TODO: extract absolute path and reference from a non-repo config file
 application = tornado.web.Application([
 	(r"/", MainHandler),
-	(r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": "C:/Users/enduser/Desktop/Documents/Programming/Javascript/2048_Stats/assets/"}),
+	(r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": config.log_path}),
 ], debug=True)
 
 if __name__ == "__main__":
