@@ -1,4 +1,4 @@
-var margin = {top: 20, right: 10, bottom: 20, left: 10};
+var margin = {top: 20, right: 10, bottom: 20, left: 60};
 var width = 960 - margin.left - margin.right,
 	height = 500 - margin.top - margin.bottom;
 
@@ -14,6 +14,12 @@ function initValues() {
 	svg = d3.select("body").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom);
+		
+	svg.append("defs").append("clipPath")
+		.attr("id", "clip")
+	.append("rect")
+		.attr("width", width)
+		.attr("height", height);
 		
 	focus = svg.append("g")
 		.attr("class","focus")
@@ -45,11 +51,12 @@ function saySomething(error, rows) {
 }
 
 function visualize(data) {
+	console.log("Visualizing data...");
 	var area = d3.svg.area()
 		.interpolate("monotone")
 		.x(function(d) { return x(d.time); })
 		.y0(height)
-		.y1(function(d) { return y(d.score); });
+		.y1(function(d) { console.log(d.score + " -> " + y(d.score)); return y(d.score); });
 	
 	focus.append("g")
 		.datum(data)
