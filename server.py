@@ -10,7 +10,7 @@ class MainHandler(tornado.web.RequestHandler):
 #TODO: extract absolute path and reference from a non-repo config file
 application = tornado.web.Application([
 	(r"/", MainHandler),
-	(r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": config.log_path}),
+	(r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": config.assets_path}),
 ], debug=True)
 
 if __name__ == "__main__":
