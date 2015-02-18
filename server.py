@@ -5,7 +5,7 @@ import config
 class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		print("rendering page...")
-		self.render("viz.html")
+		self.render("index.html")
 
 #TODO: extract absolute path and reference from a non-repo config file
 application = tornado.web.Application([

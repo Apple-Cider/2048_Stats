@@ -1,3 +1,5 @@
+======================= FEATURES =======================
+
 context brush concept for zooming in on different dates
 
 further controls over zoom, e.g. month partitioning, entering start/end dates...
@@ -19,3 +21,11 @@ analytics window for general stats, for stat queries, results
 ultra-zoom window for visualizing details on 1 selected game
 
 offer visualization toggles between fill, line, circles (low priority; circles is a fine default)
+
+==================== IMPLEMENTATION ====================
+
+get to basic context brush referencing mbostock's example
+
+assess code, commenting, light refactoring
+
+big time refactoring once js feels familiar again & a better design can be achieved 'n such
